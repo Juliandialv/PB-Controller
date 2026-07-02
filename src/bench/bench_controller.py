@@ -17,7 +17,7 @@ class BenchController:
         time.sleep(0.2)
 
         print(
-            f"Successfully connected to "
+            f"[DUET3d] Successfully connected to "
             f"{self.board_name} - {self.unique_id}"
         )
 
@@ -31,7 +31,7 @@ class BenchController:
         :param theta_deg: Ángulo en grados deseado para el brazo.
         """
 
-        print("Moving...")
+        print("[DUET3d] Moving...")
 
         x = angle_to_mm(phi_deg, "base")
         y = angle_to_mm(theta_deg, "brazo")
@@ -43,14 +43,14 @@ class BenchController:
         )
 
         self.duet.execute(command)
-        print(f"Position ({phi_deg}, {theta_deg}) reached")
+        print(f"[DUET3d] Position ({phi_deg}, {theta_deg}) reached")
 
     def home_axis(self):
         """Homing test bench axis"""
-        print("Homing axis...")
+        print("[DUET3d] Homing axis...")
         self.duet.execute('G28 XYZ G4 P1000')
         self.duet.wait_until_idle()
-        print("Axis homed successfully")
+        print("[DUET3D] Axis homed successfully")
 
     def close(self):
         """Closing communication with Duet board"""

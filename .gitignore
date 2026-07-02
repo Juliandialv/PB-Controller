@@ -12,6 +12,7 @@ __pycache__/
 
 # Datos
 pointclouds/*
+data/*
 
 # VS Code
 .vscode/
